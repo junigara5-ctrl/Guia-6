@@ -1,0 +1,123 @@
+/* PentaLab - Proyecto integrador de Ingeniería Web I. Paleta tomada del logo y de las estampas */
+:root {
+  --tinta: #2a1233;
+  --lavanda: #e6e4f7;
+  --sol: #c4263a;
+  --sol-oscuro: #9e1d2e;
+  --blanco: #ffffff;
+  --texto: #2b2433;
+  --suave: #5b4d66;
+  --serif: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", Georgia, serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+body { margin: 0; font-family: var(--sans); color: var(--texto); background: var(--blanco); line-height: 1.6; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--sol); }
+:focus-visible { outline: 3px solid var(--sol); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--serif); line-height: 1.2; margin: 0 0 .5rem; }
+p { margin: 0 0 .75rem; max-width: 62ch; }
+
+.saltar { position: absolute; left: -999px; background: var(--blanco); padding: .5rem 1rem; }
+.saltar:focus { left: 1rem; top: 1rem; z-index: 10; }
+
+/* ---------- Header + nav (Grid) ---------- */
+.cabecera {
+  background: var(--tinta); color: var(--lavanda);
+  padding: 1.5rem clamp(1rem, 5vw, 4rem) 1rem;
+  display: grid; grid-template-columns: auto 1fr; gap: 1rem 2rem; align-items: center;
+  position: relative; overflow: hidden;
+}
+.cabecera::before { /* el sol rojo de las estampas */
+  content: ""; position: absolute; width: 22rem; height: 22rem;
+  right: -6rem; top: -9rem; border-radius: 50%; background: var(--sol);
+}
+.cabecera > * { position: relative; }
+.marca { display: flex; align-items: center; gap: 1rem; }
+.marca img { width: 76px; height: auto; }
+.nombre-sitio { font-family: var(--serif); font-size: 1.75rem; font-weight: 700; margin: 0; }
+.presentacion h1 { font-size: clamp(1.6rem, 4vw, 2.6rem); color: var(--blanco); max-width: 22ch; }
+.presentacion p { margin: 0; }
+nav { grid-column: 1 / -1; border-top: 1px solid rgba(230, 228, 247, .3); padding-top: .75rem; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+nav a { color: var(--lavanda); text-decoration: none; padding: .35rem 0; display: inline-block; border-bottom: 2px solid transparent; }
+nav a:hover { border-bottom-color: var(--blanco); }
+:is(nav, .cabecera, footer) :focus-visible { outline-color: var(--blanco); }
+.menu-btn { display: none; font: inherit; color: var(--lavanda); background: transparent; border: 1px solid var(--lavanda); padding: .6rem 1rem; min-height: 2.75rem; cursor: pointer; }
+
+/* ---------- Main (Grid de 2 columnas) ---------- */
+main {
+  padding: 2rem clamp(1rem, 5vw, 4rem);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 17rem);
+  gap: 2.5rem; max-width: 76rem; margin: 0 auto;
+}
+main > section { grid-column: 1; }
+main > aside { grid-column: 2; grid-row: 1 / span 5; align-self: start; }
+main > section + section { border-top: 1px solid var(--lavanda); padding-top: 2rem; }
+.intro { color: var(--suave); }
+
+/* ---------- Productos ---------- */
+.productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.5rem; margin-top: 1.25rem; }
+.productos article { display: flex; flex-direction: column; }
+figure { margin: 0 0 .75rem; background: var(--lavanda); flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+figcaption { font-size: .85rem; color: var(--suave); padding: .4rem .75rem; }
+.precio { font-weight: 700; margin-top: auto; }
+.lista-marca { padding-left: 1.2rem; }
+
+/* ---------- Botones y formulario (Flexbox / Grid) ---------- */
+.boton {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 2.75rem; padding: .6rem 1.25rem; font: inherit; font-weight: 700;
+  color: var(--blanco); background: var(--sol-oscuro); border: 2px solid var(--sol-oscuro);
+  text-decoration: none; cursor: pointer; transition: background .2s;
+}
+.boton:hover { background: var(--tinta); border-color: var(--tinta); }
+.boton.secundario { background: transparent; color: var(--tinta); border-color: var(--tinta); }
+.boton.secundario:hover { background: var(--lavanda); }
+
+.formulario { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1rem; margin-top: 1.25rem; align-items: start; }
+.campo { display: flex; flex-direction: column; gap: .25rem; }
+.campo label { font-weight: 600; }
+input, select, textarea { font: inherit; padding: .6rem .75rem; min-height: 2.75rem; border: 1px solid var(--suave); border-radius: 4px; background: var(--blanco); color: var(--texto); width: 100%; }
+input:invalid:not(:placeholder-shown):not(:focus) { border-color: var(--sol); }
+.total, .formulario .boton { grid-column: 1 / -1; }
+.total { font-size: 1.25rem; font-weight: 700; margin: 0; max-width: none; }
+.resultado { margin-top: 1.5rem; padding: 1.25rem; background: var(--lavanda); border-left: 4px solid var(--sol); display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+.resultado[hidden] { display: none; }
+.resultado h3, .resultado pre, .aviso { flex: 1 1 100%; margin: 0; }
+.resultado pre { white-space: pre-wrap; font-family: var(--sans); }
+.aviso { font-size: .9rem; color: var(--suave); }
+
+/* ---------- Preguntas (elementos desplegables) ---------- */
+details { border-bottom: 1px solid var(--lavanda); padding: .5rem 0; }
+summary { cursor: pointer; font-weight: 600; min-height: 2.75rem; display: flex; align-items: center; }
+details p { margin-top: .25rem; }
+
+/* ---------- Aside y footer ---------- */
+aside { background: var(--lavanda); border-left: 4px solid var(--sol); padding: 1.25rem; }
+aside h2 { font-size: 1.25rem; }
+footer { background: var(--tinta); color: var(--lavanda); padding: 2rem clamp(1rem, 5vw, 4rem); }
+footer a { color: var(--blanco); }
+footer p { margin-bottom: .4rem; }
+.footer-marca { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; }
+
+/* ---------- Responsive: tableta, tableta pequeña y móvil ---------- */
+@media (max-width: 1024px) { /* tableta: una sola columna, el aside pasa al final */
+  main { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+  main > aside { grid-column: 1; grid-row: auto; }
+}
+@media (max-width: 800px) { /* tableta pequeña y móvil: cabecera apilada y menú plegable */
+  .cabecera { grid-template-columns: 1fr; }
+  .js .menu-btn { display: inline-flex; align-items: center; }
+  .js nav ul { display: none; flex-direction: column; margin-top: .5rem; }
+  .js nav ul.abierto { display: flex; }
+  nav a { padding: .6rem 0; }
+}
+@media (max-width: 480px) { /* móvil: una columna de productos y botones a todo el ancho */
+  .productos { grid-template-columns: 1fr; }
+  .boton { width: 100%; }
+  .productos .boton { margin-top: .5rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .boton { transition: none; } }

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PentaLab: tienda virtual colombiana de camisetas oversize con estampas gráficas de inspiración japonesa. Elige tu diseño y arma tu pedido en línea.">
+  <title>PentaLab | Streetwear colombiano con alma japonesa</title>
+  <link rel="icon" href="img/logo.png">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <a class="saltar" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="cabecera" id="inicio">
+    <div class="marca">
+      <img src="img/logo.png" alt="Logotipo de PentaLab: escudo morado con un ojo y el nombre PENTA LAB" width="76" height="100">
+      <p class="nombre-sitio">PentaLab</p>
+    </div>
+
+    <div class="presentacion">
+      <h1>Streetwear colombiano con alma japonesa</h1>
+      <p>Camisetas oversize con estampas gráficas. Elige tu diseño y arma tu pedido aquí mismo.</p>
+    </div>
+
+    <nav aria-label="Navegación principal">
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menú</button>
+      <ul id="menu">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Colección</a></li>
+        <li><a href="#pedido">Haz tu pedido</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#preguntas">Preguntas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section id="productos" aria-labelledby="titulo-productos">
+      <h2 id="titulo-productos">Colección</h2>
+      <p class="intro">Tres diseños, todos en camiseta blanca oversize. Pulsa «Pedir este diseño» y se llena el formulario por ti.</p>
+
+      <div class="productos">
+        <article>
+          <figure>
+            <img src="img/kame-house.png" alt="Camiseta blanca oversize con un sol rojo y una casa en una isla con palmeras, y el texto Kame House en letras negras" width="400" height="450" loading="lazy">
+            <figcaption>Kame House, estampa de espalda.</figcaption>
+          </figure>
+          <h3>Kame House</h3>
+          <p>Una isla pequeña frente a un sol rojo gigante, con el nombre en letras japonesas.</p>
+          <p class="precio"><data value="80000">$80.000</data> COP</p>
+          <a class="boton" href="#pedido" data-diseno="kame-house">Pedir este diseño</a>
+        </article>
+
+        <article>
+          <figure>
+            <img src="img/rimadera.png" alt="Camiseta blanca oversize con una ilustración estilo grabado japonés de un monje en un lago, globos rojos y grullas, con el título La Eterna Rimadera" width="400" height="450" loading="lazy">
+            <figcaption>La Eterna Rimadera, estampa de espalda.</figcaption>
+          </figure>
+          <h3>La Eterna Rimadera</h3>
+          <p>Un lago, un monje, globos rojos y grullas, con una frase sobre vivir a fondo.</p>
+          <p class="precio"><data value="84000">$84.000</data> COP</p>
+          <a class="boton" href="#pedido" data-diseno="rimadera">Pedir este diseño</a>
+        </article>
+
+        <article>
+          <figure>
+            <img src="img/og-style.png" alt="Camiseta blanca oversize con un templo japonés en blanco y negro, un personaje agachado con tenis de colores y el texto O'G Style en letras de fuego" width="400" height="450" loading="lazy">
+            <figcaption>O’G Style, estampa de espalda.</figcaption>
+          </figure>
+          <h3>O’G Style</h3>
+          <p>Un templo antiguo y un personaje de calle, con letras que parecen llamas.</p>
+          <p class="precio"><data value="82000">$82.000</data> COP</p>
+          <a class="boton" href="#pedido" data-diseno="og-style">Pedir este diseño</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="pedido" aria-labelledby="titulo-pedido">
+      <h2 id="titulo-pedido">Haz tu pedido</h2>
+      <p class="intro">Llena los datos y te armamos el mensaje con el total. Lo envías por Instagram o WhatsApp y te confirmamos.</p>
+
+      <form id="form-pedido" class="formulario">
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder=" " required>
+        </div>
+        <div class="campo">
+          <label for="ciudad">Ciudad</label>
+          <input id="ciudad" name="ciudad" type="text" autocomplete="address-level2" placeholder=" " required>
+        </div>
+        <div class="campo">
+          <label for="diseno">Diseño</label>
+          <select id="diseno" name="diseno" required>
+            <option value="" data-precio="0">Elige un diseño</option>
+            <option value="kame-house" data-precio="80000">Kame House</option>
+            <option value="rimadera" data-precio="84000">La Eterna Rimadera</option>
+            <option value="og-style" data-precio="82000">O’G Style</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="talla">Talla</label>
+          <select id="talla" name="talla" required>
+            <option value="">Elige una talla</option>
+            <option>S</option><option>M</option><option>L</option><option>XL</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="cantidad">Cantidad</label>
+          <input id="cantidad" name="cantidad" type="number" min="1" max="10" value="1" required>
+        </div>
+        <div class="campo">
+          <label for="notas">Notas (opcional)</label>
+          <textarea id="notas" name="notas" rows="2"></textarea>
+        </div>
+        <p class="total">Total: <output id="total" for="diseno cantidad">—</output></p>
+        <button class="boton" type="submit">Armar mi pedido</button>
+      </form>
+
+      <div id="resultado" class="resultado" role="status" hidden>
+        <h3>Tu pedido está listo</h3>
+        <pre id="mensaje"></pre>
+        <button class="boton" type="button" id="copiar">Copiar mensaje</button>
+        <a class="boton secundario" href="https://www.instagram.com/penta_lab/" target="_blank" rel="noopener">Enviar por Instagram</a>
+        <p id="aviso" class="aviso"></p>
+      </div>
+    </section>
+
+    <section id="nosotros" aria-labelledby="titulo-nosotros">
+      <h2 id="titulo-nosotros">Nosotros</h2>
+      <p>PentaLab es una marca colombiana de camisetas oversize con estampas gráficas. Nuestra identidad visual toma ideas del arte japonés y las mezcla con la cultura de calle.</p>
+      <ul class="lista-marca">
+        <li>Corte oversize.</li>
+        <li>Estampas gráficas de espalda completa.</li>
+        <li>Ventas por WhatsApp e Instagram.</li>
+      </ul>
+    </section>
+
+    <section id="preguntas" aria-labelledby="titulo-preguntas">
+      <h2 id="titulo-preguntas">Preguntas frecuentes</h2>
+      <details>
+        <summary>¿Cómo hago un pedido?</summary>
+        <p>Elige el diseño y la talla en el formulario, copia el mensaje y envíalo por Instagram o WhatsApp. Te confirmamos el pedido por el mismo medio.</p>
+      </details>
+      <details>
+        <summary>¿Las camisetas son oversize?</summary>
+        <p>Sí. Todas son de corte oversize y la estampa va en la espalda.</p>
+      </details>
+      <details>
+        <summary>¿Cuánto cuesta cada diseño?</summary>
+        <p>Kame House $80.000, O’G Style $82.000 y La Eterna Rimadera $84.000, en pesos colombianos.</p>
+      </details>
+    </section>
+
+    <aside aria-labelledby="titulo-aside">
+      <h2 id="titulo-aside">Cómo comprar</h2>
+      <p>Elige tu diseño, arma el pedido y envíanos el mensaje. Si prefieres, escríbenos directo con el diseño y la talla.</p>
+      <p><a href="https://www.instagram.com/penta_lab/" target="_blank" rel="noopener">Abrir Instagram @Penta_lab</a></p>
+    </aside>
+  </main>
+
+  <footer id="contacto">
+    <p class="footer-marca">PentaLab</p>
+    <p>Proyecto integrador de Ingeniería Web I, desarrollado por Juan Nicolás García Ramírez.</p>
+    <p>Contacto: <a href="https://www.instagram.com/penta_lab/" target="_blank" rel="noopener">Instagram @Penta_lab</a></p>
+    <p>&copy; <time datetime="2026">2026</time> PentaLab. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
